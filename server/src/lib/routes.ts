@@ -80,6 +80,104 @@ export async function appRoutes(app: FastifyInstance) {
     })
 
 
+    // completar / não completar um hábito
+
+    app.patch('/habits/:id/toggle', async (request)=>{
+        //route param => parametro de identificação
+        const toggleHabitParams = z.object({
+            id: z.string().uuid(),
+        })
+
+        const { id } = toggleHabitParams.parse(request.params)
+
+        const today = dayjs().startOf('day').toDate()
+
+        let day = await prisma.day.findUnique({
+            where:{
+                date:today,
+            }
+        })
+
+        if(!day){
+            day = await prisma.day.create({
+                data:{
+                    date:today,
+                }
+            })
+        }
+
+        const dayHabit = await prisma.dayHabit.findUnique({
+            where:{
+                day_id_habit_id:{
+                    day_id: day.id,
+                    habit_id: id,
+                }
+            }
+        })
+
+        if(dayHabit){
+            await prisma.dayHabit.delete({
+                where: {
+                    id:dayHabit.id,
+                }
+            })
+        }
+
+        else{
+            await prisma.dayHabit.create({
+                data:{
+                    day_id: day.id,
+                    habit_id: id,
+                }
+            })
+        }
+
+        //completar o hábito
+        
+
+
+
+    })
+
+    app.get('/summary', async()=>{
+        //[{date:17/01, amount: 5, completed:1 }, {}, {}]
+        // prisma ORM: funciona só no SQ lite
+        // parte SQL
+
+        const summary = await prisma.$queryRaw`
+        SELECT 
+            D.id, 
+            D.date,
+            
+            (-- //Sub querie
+                SELECT
+                     cast(count(*) as float)
+                FROM day_habits DH
+                WHERE DH.day_id = D.id
+            ) as completed,
+
+            (
+                SELECT
+                    cast(count(*) as float)
+                FROM habit_week_days HWD
+                JOIN habits H
+                    ON H.ID = HWD.habit_id
+                WHERE
+                    HWD.week_day = cast(strftime('%w', D.date/10000.0,'unixepoch') as int )
+                    AND H.created_at <= D.date
+
+            )as amount
+
+        
+        FROM days D`
+
+         // unix epoch timestamp 
+        //data SQ lite: Epoch Timestamp
+
+        return summary
+        
+    })
+
 
 
 }
