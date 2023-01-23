@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./src/assets/Habits-removebg-preview.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <title>Habits</title>
     <style>
       *{
@@ -26,10 +29,11 @@
 
      #button-mode{
       width: 5vw;
-      background-color: aqua;
-      color: black;
+      background-color:transparent;
+      color: #0ea5e9;
       margin-top: 1%;
       margin-left: 78%;
+      font-family: 'Poppins', sans-serif;
      }
 
      
@@ -60,6 +64,7 @@
    
         document.getElementById("logo").src =  ''
         document.getElementById("logo").src =  './src/assets/logo_light.svg'
+        document.getElementById("button-mode").style.color = "#1e3a8a";
         console.log( document.getElementById("logo").src)
         buttonPressed = false
 
@@ -72,6 +77,7 @@
         document.getElementById('background').classList.remove("bg-white");
         document.getElementById('background').classList.add("bg-black");
         document.getElementById("logo").src =  './src/assets/logo_dark.svg'
+        document.getElementById("button-mode").style.color = "#0ea5e9";
         console.log( document.getElementById("logo").src)
         buttonPressed = true
 
