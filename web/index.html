@@ -35,19 +35,56 @@
      
     </style>
   </head>
-  <body id="background" class=" bg-black text-white" >
+  <body id="background"  class=" bg-black text-white" >
    
-   <img src="./src/assets/logo.svg" onclick="" alt="">
+   <img id="logo"   onclick="" alt="">
    <button id="button-mode">Dark Mode</button>
     <div id="root">
       
     </div>
   
     <script>
-      
+       let buttonPressed = true
+        const logo = document.getElementById("logo");
+        const background = document.getElementById("background")
+        document.getElementById("logo").src =  ''
+        document.getElementById("logo").src = './src/assets/logo_dark.svg'
+        //let logoSource = document.getElementById("logo").src
+      //  console.log(logoSource)
+      //  console.log(typeof(logoSource))
+
      function ToggleTheme(){
-      document.getElementById('background').classList.remove("bg-black");
-      document.getElementById('background').classList.add("bg-white");
+    // console.log(background.className)
+     //console.log(typeof(background.className))
+
+      if(buttonPressed == true){
+        document.getElementById('background').classList.remove("bg-black");
+        document.getElementById('background').classList.add("bg-white");
+   
+        document.getElementById("logo").src =  ''
+        document.getElementById("logo").src =  './src/assets/logo_light.svg'
+        console.log( document.getElementById("logo").src)
+        buttonPressed = false
+
+        document.getElementById("button-mode").innerHTML = "Light Mode";
+       
+      
+      }
+
+      else if(buttonPressed == false ){
+        document.getElementById('background').classList.remove("bg-white");
+        document.getElementById('background').classList.add("bg-black");
+        document.getElementById("logo").src =  './src/assets/logo_dark.svg'
+        console.log( document.getElementById("logo").src)
+        buttonPressed = true
+
+        
+        document.getElementById("button-mode").innerHTML = "Dark Mode";
+    
+    
+     
+      }
+      
      }
 
       
