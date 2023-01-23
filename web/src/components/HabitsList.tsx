@@ -81,7 +81,7 @@ export function HabitsList({ date, onCompletedChanged }: HabitsListProps) {
                                 <Check size={20} className="text-white" />
                             </Checkbox.Indicator>
                         </div>
-                        <span className='font-semibold text-xl text-white leading-tight group-data-[state=checked]:line-through group-data-[state=checked]:text-zinc-400'>
+                        <span className='font-semibold text-xl text-blue-00 leading-tight group-data-[state=checked]:line-through group-data-[state=checked]:text-gray-500'>
                             {habit.title}
                         </span>
                     </Checkbox.Root>

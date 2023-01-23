@@ -10,17 +10,20 @@ import { NewHabitForm } from './NewHabitsForm';
 export function Header() {
 
   return (
-    <div className='w-full max-w-3xl mx-auto flex items-center justify-between '>
-      <img src={logoImage} alt="Habits" />
+    <div className='w-full max-w-4xl mx-auto flex items-center'>
+      {/* <img src={logoImage} alt="Habits" /> */}
 
       <Dialog.Root>
-        <Dialog.Trigger
-          type='button'
-          className='border border-blue-500 font-semibold rounded-lg px-6 py-4 flex items-center gap-3 hover:border-blue-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-background'
-        >
-          <Plus size={20} className="text-blue-500 " />
-          Novo hábito
-        </Dialog.Trigger>
+      
+          <Dialog.Trigger
+            type='button'
+            className='border border-blue-500 font-semibold rounded-lg px-6 py-4 flex items-center gap-3 hover:border-blue-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-background'
+          >
+            <Plus size={20} className="text-blue-500" />
+            Novo hábito
+          </Dialog.Trigger>
+ 
+
 
         <Dialog.Portal>
           <Dialog.Overlay className='w-screen h-screen bg-black/80 fixed inset-0' />
@@ -35,6 +38,7 @@ export function Header() {
             <NewHabitForm />
           </Dialog.Content>
         </Dialog.Portal>
+
       </Dialog.Root>
 
     </div >

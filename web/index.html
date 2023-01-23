@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="./src/assets/Habits-removebg-preview.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Habits</title>
     <style>
@@ -12,13 +12,49 @@
         box-sizing: border-box;
       }
 
+      html, body {margin: 0; height: 100%; overflow: hidden}
+
+   
+      img{
+       margin-left: 78%;
+        margin-top: 2%;
+        width: 100px;
+        
+        cursor: pointer;
+        margin-bottom: 0;
+      }
+
+     #button-mode{
+      width: 5vw;
+      background-color: aqua;
+      color: black;
+      margin-top: 1%;
+      margin-left: 78%;
+     }
+
      
     </style>
   </head>
-  <body class="bg-background text-white" >
+  <body id="background" class=" bg-black text-white" >
    
+   <img src="./src/assets/logo.svg" onclick="" alt="">
+   <button id="button-mode">Dark Mode</button>
     <div id="root">
+      
     </div>
+  
+    <script>
+      
+     function ToggleTheme(){
+      document.getElementById('background').classList.remove("bg-black");
+      document.getElementById('background').classList.add("bg-white");
+     }
+
+      
+      document.getElementById('button-mode').addEventListener("click", ToggleTheme)
+
+
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

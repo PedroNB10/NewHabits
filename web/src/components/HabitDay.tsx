@@ -27,7 +27,7 @@ export function HabitDay({ defaultCompleted = 0, amount = 0, date }: HabitDayPro
         <Popover.Root>
             <Popover.Trigger
                 className={clsx('w-10 h-10  border-2  rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-600 focus:offset-2 focus:ring-offset-background', {
-                    'bg-blue-400 border-blue-300': completedPercentage === 0,
+                    'bg-zinc-400 border-zinc-300': completedPercentage === 0,
                     'bg-blue-900 border-blue-700': completedPercentage > 0 && completedPercentage < 20,
                     'bg-blue-800 border-blue-600': completedPercentage >= 20 && completedPercentage < 40,
                     'bg-blue-700 border-blue-500': completedPercentage >= 40 && completedPercentage < 60,
@@ -39,16 +39,16 @@ export function HabitDay({ defaultCompleted = 0, amount = 0, date }: HabitDayPro
             />
 
             <Popover.Portal>
-                <Popover.Content className='min-w-[320px] w-full p-6 rounded-2xl bg-zinc-900 flex flex-col'>
-                    <span className='font-semibold text-zinc-400'>{dayOfWeek}</span>
-                    <span className='mt-1 font-extrabold leading-tight text-3xl'>{dayAndMonth}</span>
+                <Popover.Content className='  min-w-[320px] w-full p-6 rounded-2xl bg-blue-700 flex flex-col'>
+                    <span className=' font-extrabold text-white'>{dayOfWeek}</span>
+                    <span className='mt-1 text-white font-extrabold leading-tight text-3xl'>{dayAndMonth}</span>
 
                     <ProgressBar progress={completedPercentage} />
 
                     <HabitsList date={date} onCompletedChanged={handleCompletedChanged}/>
 
 
-                    <Popover.Arrow height={8} width={16} className='fill-zinc-900 ' />
+                    <Popover.Arrow height={8} width={16} className='fill-blue-700' />
                 </Popover.Content>
             </Popover.Portal>
         </Popover.Root>
