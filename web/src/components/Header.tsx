@@ -17,7 +17,7 @@ export function Header() {
       
           <Dialog.Trigger
             type='button'
-            className='border border-blue-500 font-semibold rounded-lg px-6 py-4 flex items-center gap-3 hover:border-blue-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-background'
+            className='border text-blue-800 border-blue-500 font-semibold rounded-lg px-6 py-4 flex items-center gap-3 hover:border-blue-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-background'
           >
             <Plus size={20} className="text-blue-500" />
             Novo hábito
