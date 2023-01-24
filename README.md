@@ -1,5 +1,28 @@
 <h1 align="center">Primeiro Evento Nlw Setup  2023</h1>
 
+## 🚀 Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- Typescript
+- Javascript
+- HTML
+- CSS
+- SQLite
+- Node.js
+- Vite
+
+## 📚 Bibliotecas
+- Radix
+- Tailwind
+- Prisma
+- Clsx
+- Zod
+- Fastify
+- Phosphor icons
+- Axios
+- Dayjs
+
 
 ## 💻 Como executar o projeto
 
