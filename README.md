@@ -13,7 +13,7 @@
 2. Execute `npm install` para instalar todas as dependências
 3. Execute `npm run dev` para iniciar o projeto
 
-### Comandos para o banco de dados utilizando prisma (na pasta web) -opcional
+### Comandos para o banco de dados utilizando prisma (na pasta server) -opcional
 
 - Execute `npx prisma studio` para inicializar o interface do prisma para ver os dados armazenados
 - Execute `npx prisma migrate reset` para resetar o banco de dados  
